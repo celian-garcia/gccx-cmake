@@ -2,11 +2,11 @@
 # Use an official Python runtime as a base image
 FROM gcc:6
 
-RUN wget http://www.cmake.org/files/v3.7/cmake-3.7.2.tar.gz \
-  && tar xf cmake-3.7.2.tar.gz \
-  && cd cmake-3.7.2 \
+RUN wget http://www.cmake.org/files/v3.6/cmake-3.6.3.tar.gz \
+  && tar xf cmake-3.6.3.tar.gz \
+  && cd cmake-3.6.3 \
   && ./configure \
   && make \
   && make install \
   && cd .. \
-  && rm -rf cmake-3.7.2*
+  && rm -rf cmake-3.6.3*
