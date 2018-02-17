@@ -1,0 +1,120 @@
+version: 2
+jobs:
+  gcc6-cmake:3.6.3:
+    machine: true
+    environment:
+      - FOLDER: "gcc6-cmake"
+      - VERSION: 3.6.3
+    steps:
+      - checkout
+
+      # login to docker hub registry
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+      # build the application image
+      - run: docker build -t $DOCKER_USER/$FOLDER:$VERSION $FOLDER/$VERSION/
+
+      # deploy the image
+      - run: docker push $DOCKER_USER/$FOLDER:$VERSION
+
+  gcc6-cmake:3.7.2:
+    machine: true
+    environment:
+      - FOLDER: "gcc6-cmake"
+      - VERSION: 3.7.2
+    steps:
+      - checkout
+
+      # login to docker hub registry
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+      # build the application image
+      - run: docker build -t $DOCKER_USER/$FOLDER:$VERSION $FOLDER/$VERSION/
+
+      # deploy the image
+      - run: docker push $DOCKER_USER/$FOLDER:$VERSION
+
+  gcc6-cmake:3.8.1:
+    machine: true
+    environment:
+      - FOLDER: "gcc6-cmake"
+      - VERSION: 3.8.1
+    steps:
+      - checkout
+
+      # login to docker hub registry
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+      # build the application image
+      - run: docker build -t $DOCKER_USER/$FOLDER:$VERSION $FOLDER/$VERSION/
+
+      # deploy the image
+      - run: docker push $DOCKER_USER/$FOLDER:$VERSION
+
+  gcc7-cmake:3.6.3:
+    machine: true
+    environment:
+      - FOLDER: "gcc7-cmake"
+      - VERSION: 3.6.3
+    steps:
+      - checkout
+
+      # login to docker hub registry
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+      # build the application image
+      - run: docker build -t $DOCKER_USER/$FOLDER:$VERSION $FOLDER/$VERSION/
+
+      # deploy the image
+      - run: docker push $DOCKER_USER/$FOLDER:$VERSION
+
+  gcc7-cmake:3.7.2:
+    machine: true
+    environment:
+      - FOLDER: "gcc7-cmake"
+      - VERSION: 3.7.2
+    steps:
+      - checkout
+
+      # login to docker hub registry
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+      # build the application image
+      - run: docker build -t $DOCKER_USER/$FOLDER:$VERSION $FOLDER/$VERSION/
+
+      # deploy the image
+      - run: docker push $DOCKER_USER/$FOLDER:$VERSION
+
+  gcc7-cmake:3.8.1:
+    machine: true
+    environment:
+      - FOLDER: "gcc7-cmake"
+      - VERSION: 3.8.1
+    steps:
+      - checkout
+
+      # login to docker hub registry
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+      # build the application image
+      - run: docker build -t $DOCKER_USER/$FOLDER:$VERSION $FOLDER/$VERSION/
+
+      # deploy the image
+      - run: docker push $DOCKER_USER/$FOLDER:$VERSION
+
+  gcc7-cmake:3.9.0:
+    machine: true
+    environment:
+      - FOLDER: "gcc7-cmake"
+      - VERSION: 3.9.0
+    steps:
+      - checkout
+
+      # login to docker hub registry
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+      # build the application image
+      - run: docker build -t $DOCKER_USER/$FOLDER:$VERSION $FOLDER/$VERSION/
+
+      # deploy the image
+      - run: docker push $DOCKER_USER/$FOLDER:$VERSION
