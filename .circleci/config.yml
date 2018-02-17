@@ -118,3 +118,15 @@ jobs:
 
       # deploy the image
       - run: docker push $DOCKER_USER/$FOLDER:$VERSION
+
+workflows:
+  version: 2
+  build-all:
+    jobs:
+      - gcc7-cmake:3.9.0
+      - gcc7-cmake:3.8.1
+      - gcc7-cmake:3.7.2
+      - gcc7-cmake:3.6.3
+      - gcc6-cmake:3.8.1
+      - gcc6-cmake:3.7.2
+      - gcc6-cmake:3.6.3
