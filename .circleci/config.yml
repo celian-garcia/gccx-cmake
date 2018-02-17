@@ -124,9 +124,21 @@ workflows:
   build-all:
     jobs:
       - gcc7-cmake:3.9.0
-      - gcc7-cmake:3.8.1
-      - gcc7-cmake:3.7.2
-      - gcc7-cmake:3.6.3
-      - gcc6-cmake:3.8.1
-      - gcc6-cmake:3.7.2
-      - gcc6-cmake:3.6.3
+      - gcc7-cmake:3.8.1:
+          requires:
+            - gcc7-cmake:3.9.0
+      - gcc7-cmake:3.7.2:
+          requires:
+            - gcc7-cmake:3.9.0
+      - gcc7-cmake:3.6.3:
+          requires:
+            - gcc7-cmake:3.9.0
+      - gcc6-cmake:3.8.1:
+          requires:
+            - gcc7-cmake:3.9.0
+      - gcc6-cmake:3.7.2:
+          requires:
+            - gcc7-cmake:3.9.0
+      - gcc6-cmake:3.6.3:
+          requires:
+            - gcc7-cmake:3.9.0
