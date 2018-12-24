@@ -1,4 +1,4 @@
-# gccx-cmake [![CircleCI](https://circleci.com/gh/celian-garcia/docker-src/tree/master.svg?style=svg)](https://circleci.com/gh/celian-garcia/docker-src/tree/master) 
+# gccx-cmake [![CircleCI](https://circleci.com/gh/celian-garcia/gccx-cmake/tree/master.svg?style=svg)](https://circleci.com/gh/celian-garcia/gccx-cmake/tree/master) 
 This repository contains the dockerfile used to build the following docker images:
 - [celiangarcia/gcc6-cmake](https://hub.docker.com/r/celiangarcia/gcc6-cmake/)
 - [celiangarcia/gcc7-cmake](https://hub.docker.com/r/celiangarcia/gcc7-cmake/)
