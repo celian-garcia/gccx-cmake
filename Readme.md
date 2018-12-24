@@ -1,8 +1,8 @@
 # gccx-cmake [![CircleCI](https://circleci.com/gh/celian-garcia/docker-src/tree/master.svg?style=svg)](https://circleci.com/gh/celian-garcia/docker-src/tree/master) 
 This repository contains the dockerfile used to build the following docker images:
-- [gcc6-cmake](https://hub.docker.com/r/celiangarcia/gcc6-cmake/)
-- [gcc7-cmake](https://hub.docker.com/r/celiangarcia/gcc7-cmake/)
-- [gcc8-cmake](https://hub.docker.com/r/celiangarcia/gcc8-cmake/)
+- [celiangarcia/gcc6-cmake](https://hub.docker.com/r/celiangarcia/gcc6-cmake/)
+- [celiangarcia/gcc7-cmake](https://hub.docker.com/r/celiangarcia/gcc7-cmake/)
+- [celiangarcia/gcc8-cmake](https://hub.docker.com/r/celiangarcia/gcc8-cmake/)
 
 # Build an image with GCC and cmake
 Both of the following solutions produce an image with tag ``albert-einstein/gcc7-cmake:3.9.6`` containing gcc 7 and cmake 3.9.6.<br>
