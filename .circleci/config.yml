@@ -1,144 +1,118 @@
 version: 2
+commands:
+  docker build and deploy:
+    description: Build the docker image and push it to the docker hub registry.
+    parameters:
+      cmake_version:
+        type: string
+      gcc_version:
+        type: string
+    steps:
+      - checkout
+
+      # login to docker hub registry
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+      # build the application image
+      - run: ./scripts/build.sh -c << parameters.cmake_version >> -g << parameters.gcc_version >> -u $DOCKER_USER .
+
+      # deploy the image
+      - run: docker push $DOCKER_USER/$FOLDER:$VERSION
 jobs:
+  
+  # == GCC 6 ====================================
   gcc6-cmake:3.6.3:
     machine: true
-    environment:
-      - FOLDER: "gcc6-cmake"
-      - VERSION: 3.6.3
     steps:
-      - checkout
-
-      # login to docker hub registry
-      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-
-      # build the application image
-      - run: docker build -t $DOCKER_USER/$FOLDER:$VERSION $FOLDER/$VERSION/
-
-      # deploy the image
-      - run: docker push $DOCKER_USER/$FOLDER:$VERSION
-
+      - docker build and deploy:
+          cmake_version: 3.6.3
+          gcc_version: 6
   gcc6-cmake:3.7.2:
     machine: true
-    environment:
-      - FOLDER: "gcc6-cmake"
-      - VERSION: 3.7.2
     steps:
-      - checkout
-
-      # login to docker hub registry
-      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-
-      # build the application image
-      - run: docker build -t $DOCKER_USER/$FOLDER:$VERSION $FOLDER/$VERSION/
-
-      # deploy the image
-      - run: docker push $DOCKER_USER/$FOLDER:$VERSION
-
-  gcc6-cmake:3.8.1:
+      - docker build and deploy:
+          cmake_version: 3.7.2
+          gcc_version: 6
+  gcc6-cmake:3.8.2:
     machine: true
-    environment:
-      - FOLDER: "gcc6-cmake"
-      - VERSION: 3.8.1
     steps:
-      - checkout
-
-      # login to docker hub registry
-      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-
-      # build the application image
-      - run: docker build -t $DOCKER_USER/$FOLDER:$VERSION $FOLDER/$VERSION/
-
-      # deploy the image
-      - run: docker push $DOCKER_USER/$FOLDER:$VERSION
-
+      - docker build and deploy:
+          cmake_version: 3.8.2
+          gcc_version: 6
+  gcc6-cmake:3.9.6:
+    machine: true
+    steps:
+      - docker build and deploy:
+          cmake_version: 3.9.6
+          gcc_version: 6
+  
+  # == GCC 7 ====================================
   gcc7-cmake:3.6.3:
     machine: true
-    environment:
-      - FOLDER: "gcc7-cmake"
-      - VERSION: 3.6.3
     steps:
-      - checkout
-
-      # login to docker hub registry
-      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-
-      # build the application image
-      - run: docker build -t $DOCKER_USER/$FOLDER:$VERSION $FOLDER/$VERSION/
-
-      # deploy the image
-      - run: docker push $DOCKER_USER/$FOLDER:$VERSION
-
+      - docker build and deploy:
+          cmake_version: 3.6.3
+          gcc_version: 7
   gcc7-cmake:3.7.2:
     machine: true
-    environment:
-      - FOLDER: "gcc7-cmake"
-      - VERSION: 3.7.2
     steps:
-      - checkout
-
-      # login to docker hub registry
-      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-
-      # build the application image
-      - run: docker build -t $DOCKER_USER/$FOLDER:$VERSION $FOLDER/$VERSION/
-
-      # deploy the image
-      - run: docker push $DOCKER_USER/$FOLDER:$VERSION
-
-  gcc7-cmake:3.8.1:
+      - docker build and deploy:
+          cmake_version: 3.7.2
+          gcc_version: 7
+  gcc7-cmake:3.8.2:
     machine: true
-    environment:
-      - FOLDER: "gcc7-cmake"
-      - VERSION: 3.8.1
     steps:
-      - checkout
-
-      # login to docker hub registry
-      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-
-      # build the application image
-      - run: docker build -t $DOCKER_USER/$FOLDER:$VERSION $FOLDER/$VERSION/
-
-      # deploy the image
-      - run: docker push $DOCKER_USER/$FOLDER:$VERSION
-
-  gcc7-cmake:3.9.0:
+      - docker build and deploy:
+          cmake_version: 3.8.2
+          gcc_version: 7
+  gcc7-cmake:3.9.6:
     machine: true
-    environment:
-      - FOLDER: "gcc7-cmake"
-      - VERSION: 3.9.0
     steps:
-      - checkout
-
-      # login to docker hub registry
-      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-
-      # build the application image
-      - run: docker build -t $DOCKER_USER/$FOLDER:$VERSION $FOLDER/$VERSION/
-
-      # deploy the image
-      - run: docker push $DOCKER_USER/$FOLDER:$VERSION
+      - docker build and deploy:
+          cmake_version: 3.9.6
+          gcc_version: 7
+  gcc7-cmake:3.10.3:
+    machine: true
+    steps:
+      - docker build and deploy:
+          cmake_version: 3.10.3
+          gcc_version: 7
+  
+  # == GCC 8 ====================================
+  gcc8-cmake:3.9.6:
+    machine: true
+    steps:
+      - docker build and deploy:
+          cmake_version: 3.9.6
+          gcc_version: 8
+  gcc8-cmake:3.10.3:
+    machine: true
+    steps:
+      - docker build and deploy:
+          cmake_version: 3.10.3
+          gcc_version: 8
 
 workflows:
   version: 2
-  build-all:
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
     jobs:
-      - gcc7-cmake:3.9.0
-      - gcc7-cmake:3.8.1:
-          requires:
-            - gcc7-cmake:3.9.0
-      - gcc7-cmake:3.7.2:
-          requires:
-            - gcc7-cmake:3.9.0
-      - gcc7-cmake:3.6.3:
-          requires:
-            - gcc7-cmake:3.9.0
-      - gcc6-cmake:3.8.1:
-          requires:
-            - gcc7-cmake:3.9.0
-      - gcc6-cmake:3.7.2:
-          requires:
-            - gcc7-cmake:3.9.0
-      - gcc6-cmake:3.6.3:
-          requires:
-            - gcc7-cmake:3.9.0
+      - gcc6-cmake:3.6.3
+      - gcc6-cmake:3.7.2
+      - gcc6-cmake:3.8.2
+      - gcc6-cmake:3.9.6
+      - gcc7-cmake:3.6.3
+      - gcc7-cmake:3.7.2
+      - gcc7-cmake:3.8.2
+      - gcc7-cmake:3.9.6
+      - gcc7-cmake:3.10.3
+      - gcc8-cmake:3.9.6
+      - gcc8-cmake:3.10.3
+
+
