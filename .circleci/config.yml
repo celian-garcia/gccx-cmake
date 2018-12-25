@@ -1,6 +1,6 @@
 version: 2
 commands:
-  docker build and deploy:
+  docker_build_and_deploy:
     description: Build the docker image and push it to the docker hub registry.
     parameters:
       cmake_version:
@@ -24,25 +24,25 @@ jobs:
   gcc6-cmake:3.6.3:
     machine: true
     steps:
-      - docker build and deploy:
+      - docker_build_and_deploy:
           cmake_version: 3.6.3
           gcc_version: 6
   gcc6-cmake:3.7.2:
     machine: true
     steps:
-      - docker build and deploy:
+      - docker_build_and_deploy:
           cmake_version: 3.7.2
           gcc_version: 6
   gcc6-cmake:3.8.2:
     machine: true
     steps:
-      - docker build and deploy:
+      - docker_build_and_deploy:
           cmake_version: 3.8.2
           gcc_version: 6
   gcc6-cmake:3.9.6:
     machine: true
     steps:
-      - docker build and deploy:
+      - docker_build_and_deploy:
           cmake_version: 3.9.6
           gcc_version: 6
   
@@ -50,31 +50,31 @@ jobs:
   gcc7-cmake:3.6.3:
     machine: true
     steps:
-      - docker build and deploy:
+      - docker_build_and_deploy:
           cmake_version: 3.6.3
           gcc_version: 7
   gcc7-cmake:3.7.2:
     machine: true
     steps:
-      - docker build and deploy:
+      - docker_build_and_deploy:
           cmake_version: 3.7.2
           gcc_version: 7
   gcc7-cmake:3.8.2:
     machine: true
     steps:
-      - docker build and deploy:
+      - docker_build_and_deploy:
           cmake_version: 3.8.2
           gcc_version: 7
   gcc7-cmake:3.9.6:
     machine: true
     steps:
-      - docker build and deploy:
+      - docker_build_and_deploy:
           cmake_version: 3.9.6
           gcc_version: 7
   gcc7-cmake:3.10.3:
     machine: true
     steps:
-      - docker build and deploy:
+      - docker_build_and_deploy:
           cmake_version: 3.10.3
           gcc_version: 7
   
@@ -82,13 +82,13 @@ jobs:
   gcc8-cmake:3.9.6:
     machine: true
     steps:
-      - docker build and deploy:
+      - docker_build_and_deploy:
           cmake_version: 3.9.6
           gcc_version: 8
   gcc8-cmake:3.10.3:
     machine: true
     steps:
-      - docker build and deploy:
+      - docker_build_and_deploy:
           cmake_version: 3.10.3
           gcc_version: 8
 
