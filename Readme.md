@@ -19,7 +19,7 @@ docker build -t albert-einstein/gcc7-cmake:3.9.6 --build-arg CMAKE_VERSION=3.9.6
 ```
 
 # Nightly build
-Some combinations are automatically build each night and push to my personal docker hub account. Please have a look at the [circle ci configuration](./.circleci/config.yml) to see what versions are built.
+Some combinations are automatically built each night and pushed to my personal docker hub account. Please have a look at the [circle ci configuration](./.circleci/config.yml) to see what versions are built.
 
 # Contribution
 Don't hesitate to send a pull request or issue if you want to see a new combination in the nightly build :).
