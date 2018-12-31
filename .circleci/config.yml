@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 commands:
   docker_build_and_deploy:
     description: Build the docker image and push it to the docker hub registry.
