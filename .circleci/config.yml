@@ -93,7 +93,7 @@ jobs:
           gcc_version: 8
 
 workflows:
-  version: 2
+  version: 2.1
   nightly:
     triggers:
       - schedule:
