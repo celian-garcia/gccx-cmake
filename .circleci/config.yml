@@ -21,25 +21,25 @@ commands:
 jobs:
   
   # == GCC 6 ====================================
-  gcc6-cmake:3.6.3:
+  gcc6-cmake-3.6.3:
     machine: true
     steps:
       - docker_build_and_deploy:
           cmake_version: 3.6.3
           gcc_version: 6
-  gcc6-cmake:3.7.2:
+  gcc6-cmake-3.7.2:
     machine: true
     steps:
       - docker_build_and_deploy:
           cmake_version: 3.7.2
           gcc_version: 6
-  gcc6-cmake:3.8.2:
+  gcc6-cmake-3.8.2:
     machine: true
     steps:
       - docker_build_and_deploy:
           cmake_version: 3.8.2
           gcc_version: 6
-  gcc6-cmake:3.9.6:
+  gcc6-cmake-3.9.6:
     machine: true
     steps:
       - docker_build_and_deploy:
@@ -47,31 +47,31 @@ jobs:
           gcc_version: 6
   
   # == GCC 7 ====================================
-  gcc7-cmake:3.6.3:
+  gcc7-cmake-3.6.3:
     machine: true
     steps:
       - docker_build_and_deploy:
           cmake_version: 3.6.3
           gcc_version: 7
-  gcc7-cmake:3.7.2:
+  gcc7-cmake-3.7.2:
     machine: true
     steps:
       - docker_build_and_deploy:
           cmake_version: 3.7.2
           gcc_version: 7
-  gcc7-cmake:3.8.2:
+  gcc7-cmake-3.8.2:
     machine: true
     steps:
       - docker_build_and_deploy:
           cmake_version: 3.8.2
           gcc_version: 7
-  gcc7-cmake:3.9.6:
+  gcc7-cmake-3.9.6:
     machine: true
     steps:
       - docker_build_and_deploy:
           cmake_version: 3.9.6
           gcc_version: 7
-  gcc7-cmake:3.10.3:
+  gcc7-cmake-3.10.3:
     machine: true
     steps:
       - docker_build_and_deploy:
@@ -79,13 +79,13 @@ jobs:
           gcc_version: 7
   
   # == GCC 8 ====================================
-  gcc8-cmake:3.9.6:
+  gcc8-cmake-3.9.6:
     machine: true
     steps:
       - docker_build_and_deploy:
           cmake_version: 3.9.6
           gcc_version: 8
-  gcc8-cmake:3.10.3:
+  gcc8-cmake-3.10.3:
     machine: true
     steps:
       - docker_build_and_deploy:
@@ -103,16 +103,16 @@ workflows:
               only:
                 - master
     jobs:
-      - gcc6-cmake:3.6.3
-      - gcc6-cmake:3.7.2
-      - gcc6-cmake:3.8.2
-      - gcc6-cmake:3.9.6
-      - gcc7-cmake:3.6.3
-      - gcc7-cmake:3.7.2
-      - gcc7-cmake:3.8.2
-      - gcc7-cmake:3.9.6
-      - gcc7-cmake:3.10.3
-      - gcc8-cmake:3.9.6
-      - gcc8-cmake:3.10.3
+      - gcc6-cmake-3.6.3
+      - gcc6-cmake-3.7.2
+      - gcc6-cmake-3.8.2
+      - gcc6-cmake-3.9.6
+      - gcc7-cmake-3.6.3
+      - gcc7-cmake-3.7.2
+      - gcc7-cmake-3.8.2
+      - gcc7-cmake-3.9.6
+      - gcc7-cmake-3.10.3
+      - gcc8-cmake-3.9.6
+      - gcc8-cmake-3.10.3
 
 
