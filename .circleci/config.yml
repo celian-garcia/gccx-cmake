@@ -6,7 +6,7 @@ commands:
       cmake_version:
         type: string
       gcc_version:
-        type: int
+        type: integer
     steps:
       - checkout
 
