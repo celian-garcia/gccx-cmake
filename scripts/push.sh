@@ -3,8 +3,8 @@
 usage()
 {
 	echo "### Usage ### ============================================"
-    echo "./build.sh [[-c <cmake version> -g <gcc version>] [-u <docker user>] <dockerfile directory> | [-h]]"
-    echo "(example: ./build.sh --cmake-version 3.10 --gcc-version 7 ..)"
+    echo "./push.sh [[-c <cmake version> -g <gcc version> -u <docker user>] | [-h]]"
+    echo "(example: ./push.sh --cmake-version 3.10 --gcc-version 7 --docker-user albert-einstein)"
     echo "=========================================================="
 }
 
@@ -24,7 +24,6 @@ while [ "$1" != "" ]; do
                                 exit
                                 ;;
         * )                     shift
-								if [ $1 ]; then dockerfile_dir=$1; fi
 								;;
     esac
 done
@@ -42,11 +41,11 @@ then
 	usage
 	exit
 fi
-if [ ! $dockerfile_dir ] || [ ! -d $dockerfile_dir ]
+if [ ! $docker_user ]
 then
-	echo " !! Error : Missing dockerfile directory !!"
-	usage
-	exit
+    echo " !! Error : Missing docker user !!"
+    usage
+    exit
 fi
 
 # Include tag builder
@@ -59,9 +58,7 @@ echo "### Variables intialized ### =="
 echo "cmake_version: $cmake_version"
 echo "gcc_version: $gcc_version"
 echo "docker_user: $docker_user"
-echo "dockerfile_dir: $dockerfile_dir"
 echo "docker_tag: $docker_tag"
 echo "==============================="
 
-# Build the docker image
-docker build -t $docker_tag --build-arg CMAKE_VERSION=$cmake_version --build-arg GCC_VERSION=$gcc_version $dockerfile_dir
+docker push ${docker_tag}

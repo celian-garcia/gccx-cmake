@@ -17,7 +17,7 @@ commands:
       - run: ./scripts/build.sh -c << parameters.cmake_version >> -g << parameters.gcc_version >> -u $DOCKER_USER .
 
       # deploy the image
-      - run: docker push $DOCKER_USER/$FOLDER:$VERSION
+      - run: ./scripts/push.sh -c << parameters.cmake_version >> -g parameters.gcc_version >> -u $DOCKER_USER
 jobs:
   
   # == GCC 6 ====================================
