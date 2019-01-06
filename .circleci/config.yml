@@ -47,12 +47,6 @@ jobs:
           gcc_version: 6
   
   # == GCC 7 ====================================
-  gcc7-cmake-3-6-3:
-    machine: true
-    steps:
-      - docker_build_and_deploy:
-          cmake_version: 3.6.3
-          gcc_version: 7
   gcc7-cmake-3-7-2:
     machine: true
     steps:
@@ -107,7 +101,6 @@ workflows:
       - gcc6-cmake-3-7-2
       - gcc6-cmake-3-8-2
       - gcc6-cmake-3-9-6
-      - gcc7-cmake-3-6-3
       - gcc7-cmake-3-7-2
       - gcc7-cmake-3-8-2
       - gcc7-cmake-3-9-6
