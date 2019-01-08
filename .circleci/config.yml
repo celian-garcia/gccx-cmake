@@ -85,6 +85,18 @@ jobs:
       - docker_build_and_deploy:
           cmake_version: 3.10.3
           gcc_version: 8
+  gcc8-cmake-3-12-4:
+    machine: true
+    steps:
+      - docker_build_and_deploy:
+          cmake_version: 3.12.4
+          gcc_version: 8
+  gcc8-cmake-3-13-2:
+    machine: true
+    steps:
+      - docker_build_and_deploy:
+          cmake_version: 3.13.2
+          gcc_version: 8
 
 workflows:
   version: 2.1
@@ -107,5 +119,7 @@ workflows:
       - gcc7-cmake-3-10-3
       - gcc8-cmake-3-9-6
       - gcc8-cmake-3-10-3
+      - gcc8-cmake-3-12-4
+      - gcc8-cmake-3-13-2
 
 
