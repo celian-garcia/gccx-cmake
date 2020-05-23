@@ -3,6 +3,8 @@ This repository contains the dockerfile used to build the following docker image
 - [celiangarcia/gcc6-cmake](https://hub.docker.com/r/celiangarcia/gcc6-cmake/)
 - [celiangarcia/gcc7-cmake](https://hub.docker.com/r/celiangarcia/gcc7-cmake/)
 - [celiangarcia/gcc8-cmake](https://hub.docker.com/r/celiangarcia/gcc8-cmake/)
+- [celiangarcia/gcc9-cmake](https://hub.docker.com/r/celiangarcia/gcc8-cmake/)
+- [celiangarcia/gcc10-cmake](https://hub.docker.com/r/celiangarcia/gcc8-cmake/)
 
 # Build an image with GCC and cmake
 Both of the following commands produce an image with tag ``albert-einstein/gcc7-cmake:3.9.6`` containing gcc 7 and cmake 3.9.6.<br>
