@@ -2,6 +2,7 @@ version: 2.1
 
 jobs:
   docker_build_and_deploy:
+    executor: docker/docker
     description: Build the docker image and push it to the docker hub registry.
     parameters:
       cmake_version:
@@ -20,6 +21,9 @@ jobs:
       # deploy the image
       - run: ./scripts/push.sh -c << parameters.cmake_version >> -g << parameters.gcc_version >> -u $DOCKER_USER
 
+orbs:
+  docker: circleci/docker@1.0.1
+  
 workflows:
   version: 2.1
   nightly:
