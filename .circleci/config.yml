@@ -91,12 +91,99 @@ jobs:
       - docker_build_and_deploy:
           cmake_version: 3.12.4
           gcc_version: 8
-  gcc8-cmake-3-13-2:
+  gcc8-cmake-3-13-5:
     machine: true
     steps:
       - docker_build_and_deploy:
-          cmake_version: 3.13.2
+          cmake_version: 3.13.5
           gcc_version: 8
+  gcc8-cmake-3-14-7:
+    machine: true
+    steps:
+      - docker_build_and_deploy:
+          cmake_version: 3.14.7
+          gcc_version: 8
+  gcc8-cmake-3-15-7:
+    machine: true
+    steps:
+      - docker_build_and_deploy:
+          cmake_version: 3.15.7
+          gcc_version: 8
+  gcc8-cmake-3-16-6:
+    machine: true
+    steps:
+      - docker_build_and_deploy:
+          cmake_version: 3.16.6
+          gcc_version: 8
+  gcc8-cmake-3-17-2:
+    machine: true
+    steps:
+      - docker_build_and_deploy:
+          cmake_version: 3.17.2
+          gcc_version: 8
+  # == GCC 9 ====================================
+  gcc9-cmake-3-13-5:
+    machine: true
+    steps:
+      - docker_build_and_deploy:
+          cmake_version: 3.13.5
+          gcc_version: 9
+  gcc9-cmake-3-14-7:
+    machine: true
+    steps:
+      - docker_build_and_deploy:
+          cmake_version: 3.14.7
+          gcc_version: 9
+  gcc9-cmake-3-15-7:
+    machine: true
+    steps:
+      - docker_build_and_deploy:
+          cmake_version: 3.15.7
+          gcc_version: 9
+  gcc9-cmake-3-16-6:
+    machine: true
+    steps:
+      - docker_build_and_deploy:
+          cmake_version: 3.16.6
+          gcc_version: 9
+  gcc9-cmake-3-17-2:
+    machine: true
+    steps:
+      - docker_build_and_deploy:
+          cmake_version: 3.17.2
+          gcc_version: 9
+  
+  # == GCC 10 ====================================
+  gcc10-cmake-3-13-5:
+    machine: true
+    steps:
+      - docker_build_and_deploy:
+          cmake_version: 3.13.5
+          gcc_version: 10
+  gcc10-cmake-3-14-7:
+    machine: true
+    steps:
+      - docker_build_and_deploy:
+          cmake_version: 3.14.7
+          gcc_version: 10
+  gcc10-cmake-3-15-7:
+    machine: true
+    steps:
+      - docker_build_and_deploy:
+          cmake_version: 3.15.7
+          gcc_version: 10
+  gcc10-cmake-3-16-6:
+    machine: true
+    steps:
+      - docker_build_and_deploy:
+          cmake_version: 3.16.6
+          gcc_version: 10
+  gcc10-cmake-3-17-2:
+    machine: true
+    steps:
+      - docker_build_and_deploy:
+          cmake_version: 3.17.2
+          gcc_version: 10
 
 workflows:
   version: 2.1
@@ -120,6 +207,20 @@ workflows:
       - gcc8-cmake-3-9-6
       - gcc8-cmake-3-10-3
       - gcc8-cmake-3-12-4
-      - gcc8-cmake-3-13-2
+      - gcc8-cmake-3-13-5
+      - gcc8-cmake-3-14-7
+      - gcc8-cmake-3-15-7
+      - gcc8-cmake-3-16-6
+      - gcc8-cmake-3-17-2
+      - gcc9-cmake-3-13-5
+      - gcc9-cmake-3-14-7
+      - gcc9-cmake-3-15-7
+      - gcc9-cmake-3-16-6
+      - gcc9-cmake-3-17-2
+      - gcc10-cmake-3-13-5
+      - gcc10-cmake-3-14-7
+      - gcc10-cmake-3-15-7
+      - gcc10-cmake-3-16-6
+      - gcc10-cmake-3-17-2
 
 
